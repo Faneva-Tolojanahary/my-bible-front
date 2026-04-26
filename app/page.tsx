@@ -12,6 +12,7 @@ type Testament = {
   subtitle: string;
   livres: number;
   divisions: string;
+  link: String;
 };
 
 // ── Data ───────────────────────────────────────────────────────────────────
@@ -22,6 +23,7 @@ const testaments: Testament[] = [
     subtitle: "Ny Teny masina izay nanomboka ny zavatra rehetra",
     livres: 39,
     divisions: "Torah, Mpaminany, Soratra",
+    link: "old-testament"
   },
   {
     id: "vaovao",
@@ -29,12 +31,13 @@ const testaments: Testament[] = [
     subtitle: "Ny fiainana sy ny famonjena ao amin'i Jesosy",
     livres: 27,
     divisions: "Filazantsara, Taratasy, Apokalipsy",
+    link: "new-testament"
   },
 ];
 
 
 // ── Component ──────────────────────────────────────────────────────────────
-export default function AppelsOffrePage() {
+export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 60]);
@@ -122,7 +125,7 @@ export default function AppelsOffrePage() {
                   {/* Button */}
                   <Link
                     className="inline-flex items-center gap-3 text-sm tracking-widest uppercase text-gray-400 hover:text-[#D4A574] transition-colors group"
-                    href="/books"
+                    href={`/books/${t.link}`}
                   >
                     <span>Hijery ny boky</span>
                     <span className="text-[#D4A574] group-hover:translate-x-1 transition-transform">→</span>

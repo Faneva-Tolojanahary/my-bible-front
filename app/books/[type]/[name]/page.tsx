@@ -26,6 +26,7 @@ export default function BookPage() {
   const params = useParams();
   const bookName = params.name as string;
   const versesRef = useRef<HTMLDivElement>(null);
+
   
   const [bookData, setBookData] = useState<BookData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -146,7 +147,7 @@ export default function BookPage() {
       <div className="sticky top-0 z-10 bg-[#F5F0E8]/95 backdrop-blur-sm border-b border-[#D4C4A8]">
         <div className="max-w-[1000px] mx-auto px-6 py-4">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-            <Link href="/books" className="text-[#8B7355] hover:text-[#6B5340] transition text-sm tracking-wide inline-flex items-center gap-2 font-serif">
+            <Link href={`/books/${params.type}`} className="text-[#8B7355] hover:text-[#6B5340] transition text-sm tracking-wide inline-flex items-center gap-2 font-serif">
               <span>←</span>
               <span>Lisitry ny boky</span>
             </Link>
