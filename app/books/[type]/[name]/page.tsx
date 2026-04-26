@@ -14,12 +14,6 @@ interface Chapter {
 
 interface BookData {
   [chapterNumber: string]: Chapter;
-  _id: string;
-  meta: {
-    name: string;
-    order: number;
-    chapter_number: number;
-  };
 }
 
 export default function BookPage() {
