@@ -1,5 +1,7 @@
 // lib/api-client.ts
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+const API_BASE_URL = process.env.NODE_ENV === 'production' 
+  ? "https://my-bible.onrender.com/api"
+  : 'http://localhost:5000/api';
 
 class APIClient {
   private async request(endpoint: string, options?: RequestInit) {
